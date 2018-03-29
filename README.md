@@ -7,20 +7,46 @@ Code to accompany [Advanced Analytics with Spark](http://shop.oreilly.com/produc
 
 [![Advanced Analytics with Spark](http://akamaicovers.oreilly.com/images/0636920056591/lrg.jpg)](http://shop.oreilly.com/product/0636920056591.do)
 
-### 2nd Edition (current)
+### Env
 
-The source to accompany the 2nd edition is found in this, the default 
-[`master` branch](https://github.com/sryza/aas).
+1版:spark1系    
+2版:spark2系    
 
-### 1st Edition
+これで試した    
 
-The source to accompany the 1st edition may be found in the 
-[`1st-edition` branch](https://github.com/sryza/aas/tree/1st-edition).
+```
+$ scala -version
+Scala code runner version 2.12.0 -- Copyright 2002-2016, LAMP/EPFL and Lightbend, Inc
+$ spark-shell --version
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.1.0
+      /_/
+                        
+Using Scala version 2.11.8, OpenJDK 64-Bit Server VM, 1.8.0_144
+Branch 
+Compiled by user jenkins on 2016-12-16T02:04:48Z
+```
 
 ### Build
 
-[Apache Maven](http://maven.apache.org/) 3.2.5+ and Java 8+ are required to build. From the root level of the project, 
-run `mvn package` to compile artifacts into `target/` subdirectories beneath each chapter's directory.
+Pythonで動かしてみるSpark入門    
+https://qiita.com/miyamotok0105/items/bf3638607ef6cb95f01b    
+
+『Sparkによる実践データ解析』のサンプルコードの動かし方    
+https://qiita.com/yu-iskw/items/aedc2fb95f508e621a20    
+
+```
+mvn clean package
+```
+
+対話形式で動かしたい場合    
+
+```
+spark-shell --master local[*]
+```
 
 ### Data Sets
 

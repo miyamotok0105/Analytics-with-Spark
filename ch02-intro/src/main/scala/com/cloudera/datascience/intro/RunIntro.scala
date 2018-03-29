@@ -8,6 +8,7 @@ package com.cloudera.datascience.intro
 
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 import org.apache.spark.sql.functions._ // for lit(), first(), etc.
+import java.io._
 
 case class MatchData(
   id_1: Int,
@@ -30,8 +31,13 @@ object RunIntro extends Serializable {
       .appName("Intro")
       .getOrCreate
     import spark.implicits._
- 
-    val preview = spark.read.csv("hdfs:///user/ds/linkage")
+
+    println("path is here !!!!!!!!!!!!!!!!")
+    println(new File(".").getAbsoluteFile().getParent())
+
+    //hdfsを立ててた場合はこっち
+    // val preview = spark.read.csv("hdfs:///user/ds/linkage")
+    val preview = spark.read.csv("/Users/miyamoto/Projects/sample/Analytics-with-Spark/ch02-intro/linkage/donation/block_1.csv")
     preview.show()
     preview.printSchema()
 
@@ -39,7 +45,9 @@ object RunIntro extends Serializable {
       .option("header", "true")
       .option("nullValue", "?")
       .option("inferSchema", "true")
-      .csv("hdfs:///user/ds/linkage")
+      // .csv("hdfs:///user/ds/linkage")
+      .csv("/Users/miyamoto/Projects/sample/Analytics-with-Spark/ch02-intro/linkage/donation/block_1.csv")
+      
     parsed.show()
     parsed.printSchema()
 
